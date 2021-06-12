@@ -61,16 +61,6 @@ returns_quarterly = stock_data[selected].pct_change()
 expected_returns = returns_quarterly.mean()
 cov_quarterly = returns_quarterly.cov()
 
-"""
-Sind die Roten Kreuze (Linien)
-Company	Return	Standard Dev
-Delta	6.2%	0.24
-Jet Blue	5.2%	0.21
-Chevron	1.0%	0.10
-Exxon	-0.2%	0.05
-Adobe	5.4%	0.15
-Honeywell	2.8%	0.11
-"""
 
 single_asset_std = np.sqrt(np.diagonal(cov_quarterly))
 df = return_portfolios(expected_returns, cov_quarterly)

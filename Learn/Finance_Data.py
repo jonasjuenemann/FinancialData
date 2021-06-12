@@ -71,7 +71,7 @@ gdp['growth'] = gdp['GDP'] - gdp['GDP'].shift(1)
 # print(tsp_data.var())
 # print(tsp_data.cov())
 
-apple_prices = pd.read_csv("data/data_apple_prices.csv")
+apple_prices = pd.read_csv("../data/data_apple_prices.csv")
 print(apple_prices["open"].var())
 
 gas_prices = web.DataReader("APUS12A74714", "fred", start, end)
