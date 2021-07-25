@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""Entwickelt auf grundlage von Reddit Nutzer u/nobjos Guide"""
 
 # In[1]:
 
@@ -26,7 +25,7 @@ nltk.download('stopwords')
 
 reddit = praw.Reddit(client_id='*********',
                     client_secret='******************',
-                    user_agent='Quick-Sherbet-1373')
+                    user_agent='Beep-Boop')
 
 
 # In[4]:

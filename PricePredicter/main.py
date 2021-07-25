@@ -8,6 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
+"""Erstellt auf Grundlage der Youtube Videos von NeuralNine (https://www.youtube.com/channel/UC8wZnXYK_CGKlBcZp-GxYPA)"""
+
 # Load Data
 company = 'MSFT'
 
