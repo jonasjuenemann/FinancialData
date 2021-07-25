@@ -4,7 +4,7 @@ from _rf import return_portfolios, optimal_portfolio
 import numpy as np
 
 # 1. Load the stock data
-stock_data = pd.read_csv("data_stock_data2.csv")
+stock_data = pd.read_csv("data/data_stock_data2.csv")
 # weak<2
 print(stock_data.head())
 # 2. Find the quarterly return for each period
@@ -36,11 +36,11 @@ plt.title('Efficient Frontier', fontsize=24)
 # add a Line for the "old" weak, portfolio distribution
 # (Werte fuer risks und returns werden hier nicht neu ausgerechnet, lediglich uebernommen aus csv),
 # koennte hier mit der optimal_portfolio Funktion auch berechnet werden
-weak_EF = pd.read_csv('data_weak_risk_returns.csv')
+weak_EF = pd.read_csv('data/data_weak_risk_returns.csv')
 plt.plot(weak_EF['Risks'], weak_EF['Returns'], 'g-o')
 
 # Cutting the two stocks with the highest negative return (ChesapeakeE and GE)
-strong_EF = pd.read_csv('data_strong_risk_returns.csv')
+strong_EF = pd.read_csv('data/data_strong_risk_returns.csv')
 plt.plot(strong_EF['Risks'], strong_EF['Returns'], 'k-x')
 # Doesnt improve anything, since these assets had low returns and were correlated to
 # other assets in the portfolio
@@ -56,13 +56,13 @@ except:
     pass
 plt.show()
 
-path = 'data_stock_data3.csv'
+path = 'data/data_stock_data3.csv'
 
 # 1. Load the stock data
 stock_data = pd.read_csv(path)
 selected = list(stock_data.columns[1:])
-print(stock_data[selected].pct_change().mean())
-print(stock_data[selected].pct_change().cov())
+# print(stock_data[selected].pct_change().mean())
+# print(stock_data[selected].pct_change().cov())
 
 # stock_names = ['PFE', 'TGT', 'M', 'VZ', 'JPM', 'MRO', 'KO', 'PG', 'CVS', 'HPQ']
 selected = ['PFE', 'CVS', 'M', 'VZ', 'JPM']
@@ -94,7 +94,7 @@ plt.ylabel('Expected Returns', fontsize=14)
 plt.xlabel('Volatility (Std. Deviation)', fontsize=14)
 plt.title('Efficient Frontier', fontsize=24)
 
-# nur beim ersten mal benutzen, (wenn die selected Leiste auskommentiert ist
+# nur beim ersten mal benutzen, (wenn die selected Leiste auskommentiert ist)
 # pd.DataFrame({'Risks': risks, 'Returns': returns}).to_csv('all_ten.csv', index=False)
 
 # 9. Compare the set of portfolios on the EF to the
@@ -102,6 +102,6 @@ single_asset_std = np.sqrt(np.diagonal(cov_quarterly))
 plt.scatter(single_asset_std, expected_returns, marker='X', color='red', s=200)
 
 # All 10
-all_ten_EF = pd.read_csv('all_ten.csv')
+all_ten_EF = pd.read_csv('data/all_ten.csv')
 plt.plot(all_ten_EF['Risks'], all_ten_EF['Returns'], 'g-o')
 plt.show()
